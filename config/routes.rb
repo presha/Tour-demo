@@ -1,4 +1,11 @@
 Tour::Application.routes.draw do
+  devise_for :users
+
+  resources :destinations do
+    resources :reviews, :except =>[:show, :index]
+  end
+  #root :to => "home#index"
+  root :to =>"destinations#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
